@@ -34,5 +34,5 @@ now click where do you want to mark the pin like this
 now your mark in list 
 ok thank you for watching my video 
 dont forget to subscribe my channel 
-and like and command if your have question :)
+and like and comment if your have question :)
 thank you....
