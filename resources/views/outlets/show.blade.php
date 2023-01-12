@@ -48,7 +48,7 @@
     crossorigin=""/>
 
 <style>
-    #mapid { height: 400px; }
+    #mapid { width:900px; height: 900px; }
 </style>
 @endsection
 @push('scripts')
