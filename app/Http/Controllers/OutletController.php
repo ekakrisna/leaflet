@@ -17,6 +17,7 @@ class OutletController extends Controller
         $this->authorize('manage_outlet');
 
         $outletQuery = Outlet::query();
+        //$outletQuery->where('name', 'like', '%'.request('q').'%');
         $outletQuery->where('name', 'like', '%'.request('q').'%');
         $outlets = $outletQuery->paginate(25);
 
@@ -50,8 +51,10 @@ class OutletController extends Controller
             'address'   => 'nullable|max:255',
             'latitude'  => 'nullable|required_with:longitude|max:15',
             'longitude' => 'nullable|required_with:latitude|max:15',
+            'layer_id' => 'nullable'
         ]);
         $newOutlet['creator_id'] = auth()->id();
+        $newOutlet['layer_id'] = 1;
 
         $outlet = Outlet::create($newOutlet);
 

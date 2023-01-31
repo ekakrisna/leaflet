@@ -29,6 +29,40 @@ class PointsController extends Controller
         */
         return response(200 , "se inserto en la db");
     }
+
+    public function index(int $id)
+    {
+        /*
+        $this->authorize('manage_outlet');
+        $id = '1';
+        $outlets = Outlet::query();
+        $outlets->where('layer_id', 'like', '%'.$id.'%');
+        var_dump($outlets);
+        */
+        //$outlets = Outlet::all();
+        //$id = "1";
+        $outlets = Outlet::where('layer_id', $id)->get();
+        //$outlets->where('layer_id', $id)->first();
+
+        $geoJSONdata = $outlets->map(function ($outlet) {
+            return [
+                'type'       => 'Feature',
+                'properties' => new OutletResource($outlet),
+                'geometry'   => [
+                    'type'        => 'Point',
+                    'coordinates' => [
+                        $outlet->longitude,
+                        $outlet->latitude,
+                    ],
+                ],
+            ];
+        });
+
+        return response()->json([
+            'type'     => 'FeatureCollection',
+            'features' => $geoJSONdata,
+        ]);
+    }
 }
 
 /*

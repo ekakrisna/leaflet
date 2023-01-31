@@ -12,7 +12,7 @@ Route::group(['as' => 'api.', 'namespace' => 'Api'], function () {
      * Outlets Endpoints
      */
     Route::get('outlets', 'OutletController@index')->name('outlets.index');
-    Route::get('/points', 'PointsController@addPoints')->name('points.addPoints');
+    Route::get('points/{id}', 'PointsController@index')->name('points.index');
 });
 
 Route::any('/health', ApiController::class);
