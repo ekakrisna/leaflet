@@ -44,6 +44,9 @@
                             </li>
                         @else
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ route('layers.index') }}">{{ __('outlet.layer') }}</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('outlets.index') }}">{{ __('outlet.list') }}</a>
                             </li>
                             <li class="nav-item dropdown">

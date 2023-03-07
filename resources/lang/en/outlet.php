@@ -3,7 +3,8 @@
 return [
     // Labels
     'outlet'        => 'Outlet',
-    'list'          => 'Outlet List',
+    'list'          => 'Total Puntos',
+    'layer'         => 'Capas',
     'search'        => 'Search Outlet',
     'search_text'   => 'Name ...',
     'all'           => 'All Outlet',
@@ -12,7 +13,7 @@ return [
     'not_found'     => 'Outlet not found.',
     'empty'         => 'Outlet is empty.',
     'back_to_show'  => 'Back to Outlet Detail',
-    'back_to_index' => 'Back to Outlet List',
+    'back_to_index' => 'Back to Total Puntos',
 
     // Actions
     'create'         => 'Create new Outlet',
@@ -28,10 +29,11 @@ return [
     'undeleteable'   => 'Outlet data cannot be deleted.',
 
     // Attributes
-    'name'       => 'Outlet Name',
-    'address'    => 'Outlet Address',
-    'latitude'   => 'Latitude',
-    'longitude'  => 'Longitude',
-    'location'   => 'Location',
-    'coordinate' => 'Coordinate',
+    'name'       => 'Nombre',
+    'address'    => 'Dirección',
+    'latitude'   => 'Latitud',
+    'longitude'  => 'Longitud',
+    'location'   => 'Ubicación',
+    'coordinate' => 'Coordenadas',
+    'description' => 'Descripción'
 ];

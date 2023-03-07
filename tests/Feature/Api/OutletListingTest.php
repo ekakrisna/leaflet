@@ -26,6 +26,8 @@ class OutletListingTest extends TestCase
                         'name'       => $outlet->name,
                         'address'    => $outlet->address,
                         'coordinate' => $outlet->coordinate,
+                        'description' => $outlet->description
+
                     ],
                     'geometry'   => [
                         'type'        => 'Point',

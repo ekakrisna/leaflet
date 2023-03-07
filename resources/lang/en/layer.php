@@ -4,6 +4,7 @@ return [
     // Labels
     'outlet'        => 'Outlet',
     'list'          => 'Outlet List',
+    'layer'         => 'Capas',
     'search'        => 'Search Outlet',
     'search_text'   => 'Name ...',
     'all'           => 'All Outlet',

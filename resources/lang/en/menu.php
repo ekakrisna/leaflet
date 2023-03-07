@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'our_outlets' => 'Our Outlets',
+    'our_outlets' => 'Mapa',
 ];
