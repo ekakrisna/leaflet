@@ -22,9 +22,6 @@
     crossorigin=""></script>
 
 <script>
-    import markerIconPng from "leaflet/dist/images/marker-icon.png"
-    import {Icon} from 'leaflet'
-    
     var map = L.map('mapid').setView([{{ config('leaflet.map_center_latitude') }}, {{ config('leaflet.map_center_longitude') }}], {{ config('leaflet.zoom_level') }});
     var baseUrl = "{{ url('/') }}";
 
@@ -45,18 +42,16 @@
     */
     axios.get('{{ route('api.points.index', ['id' => $id]) }}')
     .then(function (response) {
-        console.log(response.data);
+        console.log('./13.png');
         L.geoJSON(response.data, {
             pointToLayer: function(geoJsonPoint, latlng) {
-                var greenIcon = L.icon({
-                    iconUrl: 'leaf-green.png',
-                    shadowUrl: 'leaf-shadow.png',
-
-                    iconSize:     [38, 95], // size of the icon
-                    shadowSize:   [50, 64], // size of the shadow
-                    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-                    shadowAnchor: [4, 62],  // the same for the shadow
-                    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+                var greenIcon = new L.Icon({
+                    iconUrl: "../leaflet/public/screenshots/13.png",
+                    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41],
+                    popupAnchor: [1, -34],
+                    shadowSize: [41, 41]
                 });
                 var myIcon = L.icon({
                     iconUrl: `storage/app/public/${response.data.features[0].properties.layer_id}.jpeg`,
@@ -72,7 +67,7 @@
                     popupAnchor:  [1, -24],
                     iconUrl: `c:/xampp/htdocs/COM/leaflet/storage/app/public/${response.data.features[0].properties.layer_id}.png`
                 });
-                return L.marker(latlng, {icon: myIcon}); //{icon: greenIcon}
+                return L.marker(latlng,{icon: greenIcon} ); //{icon: greenIcon}
             }
         })
         .bindPopup(function (layer) {

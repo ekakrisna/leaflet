@@ -20,6 +20,7 @@ class CreateOutletsTable extends Migration
             $table->string('latitude', 15)->nullable();
             $table->string('longitude', 15)->nullable();
             $table->integer('layer_id')->nullable();
+            $table->string('description', 255)->nullable();
             $table->unsignedInteger('creator_id');
             $table->timestamps();
 
