@@ -28,46 +28,20 @@
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
-    /*
-    var greenIcon = L.icon({
-    iconUrl: 'screenshots/camara.png',
-    shadowUrl: 'screenshots/camara.png',
-    iconSize:     [30, 30], // size of the icon
-    shadowSize:   [30, 30], // size of the shadow
-    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-    shadowAnchor: [4, 62],  // the same for the shadow
-    popupAnchor:  [0, 0], // point from which the popup should open relative to the iconAnchor
-    tooltipAnchor: [0, 0]
-    });
-    */
+    
     axios.get('{{ route('api.points.index', ['id' => $id]) }}')
     .then(function (response) {
-        console.log('./13.png');
+        console.log('data');
         L.geoJSON(response.data, {
             pointToLayer: function(geoJsonPoint, latlng) {
-                var greenIcon = new L.Icon({
-                    iconUrl: "../leaflet/public/screenshots/13.png",
-                    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                var myIcon = new L.Icon({
+                    iconUrl: '../screenshots/camara.png',
                     iconSize: [25, 41],
                     iconAnchor: [12, 41],
                     popupAnchor: [1, -34],
                     shadowSize: [41, 41]
                 });
-                var myIcon = L.icon({
-                    iconUrl: `storage/app/public/${response.data.features[0].properties.layer_id}.jpeg`,
-                    iconSize: [38, 95],
-                    iconAnchor: [22, 94],
-                    popupAnchor: [-3, -76],
-                    shadowSize: [68, 95],
-                    shadowAnchor: [22, 94]
-                });
-                var smallIcon = new L.Icon({
-                    iconSize: [27, 27],
-                    iconAnchor: [13, 27],
-                    popupAnchor:  [1, -24],
-                    iconUrl: `c:/xampp/htdocs/COM/leaflet/storage/app/public/${response.data.features[0].properties.layer_id}.png`
-                });
-                return L.marker(latlng,{icon: greenIcon} ); //{icon: greenIcon}
+                return L.marker(latlng, {icon: myIcon} );
             }
         })
         .bindPopup(function (layer) {
