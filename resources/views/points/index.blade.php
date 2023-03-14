@@ -31,12 +31,13 @@
     
     axios.get('{{ route('api.points.index', ['id' => $id]) }}')
     .then(function (response) {
-        console.log('data');
+        
         L.geoJSON(response.data, {
             pointToLayer: function(geoJsonPoint, latlng) {
+                console.log(geoJsonPoint.properties.icon);
                 var myIcon = new L.Icon({
-                    iconUrl: '../screenshots/camara.png',
-                    iconSize: [25, 41],
+                    iconUrl: '../screenshots/'+geoJsonPoint.properties.icon+'.png',
+                    iconSize: [30, 30],
                     iconAnchor: [12, 41],
                     popupAnchor: [1, -34],
                     shadowSize: [41, 41]
