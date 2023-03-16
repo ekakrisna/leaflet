@@ -3,6 +3,7 @@
 @section('title', __('outlet.list'))
 
 @section('content')
+<!-- boton oculto por el momento
 <div class="mb-3">
     <div class="float-right">
         @can('create', new App\Outlet)
@@ -11,7 +12,7 @@
     </div>
     <h1 class="page-title">{{ __('outlet.list') }} <small>{{ __('app.total') }} : {{ $outlets->total() }} {{ __('outlet.outlet') }}</small></h1>
 </div>
-
+-->
 <div class="row">
     <div class="col-md-12">
         <div class="card">

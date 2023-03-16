@@ -3,6 +3,7 @@
 @section('title', __('outlet.list'))
 
 @section('content')
+
 <div class="mb-3">
     <div class="float-right">
         @can('create', new App\Outlet)

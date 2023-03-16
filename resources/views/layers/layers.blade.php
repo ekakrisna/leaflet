@@ -3,14 +3,6 @@
 @section('title', __('outlet.list'))
 
 @section('content')
-<div class="mb-3">
-    <div class="float-right">
-        @can('create', new App\Outlet)
-            <a href="{{ route('layers.create') }}" class="btn btn-success">{{ __('outlet.create') }}</a>
-        @endcan
-    </div>
-    <h1 class="page-title">{{ __('outlet.list') }} <small>{{ __('app.total') }} : {{ $layers->total() }} {{ __('outlet.outlet') }}</small></h1>
-</div>
 
 <div class="row">
     <div class="col-md-12">
@@ -18,10 +10,10 @@
             <div class="card-header">
                 <form method="GET" action="" accept-charset="UTF-8" class="form-inline">
                     <div class="form-group">
-                        <label for="q" class="control-label">{{ __('outlet.search') }}</label>
-                        <input placeholder="{{ __('outlet.search_text') }}" name="q" type="text" id="q" class="form-control mx-sm-2" value="{{ request('q') }}">
+                        <label for="q" class="control-label">{{ __('layer.search') }}</label>
+                        <input placeholder="{{ __('layer.search_text') }}" name="q" type="text" id="q" class="form-control mx-sm-2" value="{{ request('q') }}">
                     </div>
-                    <input type="submit" value="{{ __('outlet.search') }}" class="btn btn-secondary">
+                    <input type="submit" value="{{ __('layer.search') }}" class="btn btn-secondary">
                     <a href="{{ route('layers.index') }}" class="btn btn-link">{{ __('app.reset') }}</a>
                 </form>
             </div>
