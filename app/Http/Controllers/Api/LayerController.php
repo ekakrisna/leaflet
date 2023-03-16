@@ -34,6 +34,7 @@ class LayerController extends Controller
                 $newOutlet->longitude = $point['longitude'];
                 $newOutlet->layer_id = $idLayer;
                 $newOutlet->description = $point['description'];
+                $newOutlet->icon = $point['icon'];
                 $newOutlet->creator_id = 1; //hardcodeado, usuario que creo el punto
                 $newOutlet->save();
                 $outletsQuantity++;
